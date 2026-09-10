@@ -11,26 +11,28 @@
     completed by BuildRight Construction.
 </p>
 
+{% for project in projects %}
+
 <div>
+    <h3>{{ project.title }}</h3>
 
-    <h3>Modern Family Home</h3>
+    <p>{{ project.description }}</p>
+
     <p>
-        A modern residential home designed with comfortable living
-        spaces and high-quality construction.
+        <strong>Location:</strong>
+        {{ project.location }}
     </p>
 
-    <h3>Commercial Office Building</h3>
     <p>
-        A multi-purpose commercial office building completed with
-        a focus on functionality and modern design.
+        <strong>Completed:</strong>
+        {{ project.completion_date }}
     </p>
-
-    <h3>Residential Renovation</h3>
-    <p>
-        Complete renovation of an existing home, including interior
-        improvements and structural upgrades.
-    </p>
-
 </div>
+
+{% empty %}
+
+<p>No projects are available at the moment.</p>
+
+{% endfor %}
 
 {% endblock %}

@@ -11,28 +11,18 @@
     commercial, and renovation projects.
 </p>
 
-<h3>Residential Construction</h3>
-<p>
-    We build quality homes designed around your needs, lifestyle,
-    and budget.
-</p>
+{% for service in services %}
 
-<h3>Commercial Construction</h3>
-<p>
-    We provide construction solutions for offices, shops,
-    commercial buildings, and other business spaces.
-</p>
+<div>
+    <h3>{{ service.name }}</h3>
 
-<h3>Renovation & Remodeling</h3>
-<p>
-    We renovate and remodel existing spaces to make them more
-    functional, modern, and comfortable.
-</p>
+    <p>{{ service.description }}</p>
+</div>
 
-<h3>Project Planning</h3>
-<p>
-    We help plan construction projects with attention to timelines,
-    materials, quality, and overall requirements.
-</p>
+{% empty %}
+
+<p>No services are available at the moment.</p>
+
+{% endfor %}
 
 {% endblock %}

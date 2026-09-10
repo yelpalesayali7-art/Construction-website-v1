@@ -3,7 +3,13 @@
 {% block title %}Contact Us | BuildRight Construction{% endblock %}
 
 {% block content %}
+{% if messages %}
 
+{% for message in messages %}
+<p>{{ message }}</p>
+{% endfor %}
+
+{% endif %}
 <h2>Contact Us</h2>
 
 <p>
@@ -11,36 +17,11 @@
     Get in touch with our team.
 </p>
 
-<form>
+<form method="post">
 
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-    </div>
+    {% csrf_token %}
 
-    <br>
-
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-    </div>
-
-    <br>
-
-    <div>
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone">
-    </div>
-
-    <br>
-
-    <div>
-        <label for="message">Message:</label>
-        <br>
-        <textarea id="message" name="message" rows="5" cols="40"></textarea>
-    </div>
-
-    <br>
+    {{ form.as_p }}
 
     <button type="submit">Send Message</button>
 
